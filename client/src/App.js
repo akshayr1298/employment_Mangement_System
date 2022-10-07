@@ -1,13 +1,19 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { Route } from "react-router-dom";
+import React from "react";
+import { Route } from 'react-router-dom'
+
 import User from "./Component/Home/User";
+import LeaveApplication from "./Component/LeaveApplication/LeaveApplication";
+import './App.css'
+import UserProfile from "./Component/UserProfile/UserProfile";
 
 function App() {
   return (
-    <div className="App">
-      <Route path="/" component={User} />
-      <Route path="/home" />
+    <div>
+    
+        <Route path="/" component={User} exact/>
+        <Route path="/home" component={UserProfile} />
+    
+      
     </div>
   );
 }

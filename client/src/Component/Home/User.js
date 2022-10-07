@@ -1,13 +1,26 @@
 
 import { Box, Container, Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
-
+import './user.css'
+import { useHistory } from 'react-router-dom';
 const User = () => {
+   const history = useHistory()
+
+   useEffect(()=>{
+    const user =  JSON.parse(localStorage.getItem('userInfo'))
+
+    if(user) history.push('/home')
+   },[history])
+   
   return (
-  <Container maxW="xl" centerContent>
+
+   
+    <div className='App'>
+
+  <Container maxW="xl" centerContent >
       <Box
         d="flex"
         justifyContent="center"
@@ -39,6 +52,7 @@ const User = () => {
         </Tabs>
       </Box>
     </Container>
+     </div>
   )
 }
 

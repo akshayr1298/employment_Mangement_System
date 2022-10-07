@@ -4,6 +4,7 @@ const generateToken = require('../config/generateToken')
 const User = require('../models/userModels')
 
 const signUp = asynHandler(async(req,res)=>{
+    console.log('ress',req.body);
 
     const {name,email,password,pic} = req.body
     if(!name||!email||!password){
@@ -39,13 +40,15 @@ const signUp = asynHandler(async(req,res)=>{
 })
 
 const doLogin = asynHandler(async(req,res)=>{
+    //console.log("resss");
     const {email,password} = req.body
 
     const user = await User.findOne({email})
+    //console.log(user);
 
     if(user && (await user.matchPassword(password))){
         res.json({
-              _id:user._id,
+            _id:user._id,
             name:user.name,
             email:user.email,
             pic:user.pic,
