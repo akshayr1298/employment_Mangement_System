@@ -40,7 +40,7 @@ const signUp = asynHandler(async(req,res)=>{
 })
 
 const doLogin = asynHandler(async(req,res)=>{
-    //console.log("resss");
+    
     const {email,password} = req.body
 
     const user = await User.findOne({email})

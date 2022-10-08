@@ -1,0 +1,4 @@
+install nodejs,mongodb,mongoose
+
+mongo atlas link is taken from .env fil
+JWT secret key should be there in .env
